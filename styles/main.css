@@ -19,9 +19,26 @@ body {
 h1 {
     text-align: center;
     color: #d5006d;
-    font-size: 3em;
+    font-size: 2.5em;
     margin-bottom: 40px;
     animation: fadeIn 2s ease-in-out;
+    padding: 0 20px;
+}
+
+@media (max-width: 768px) {
+    h1 {
+        font-size: 2em;
+    }
+    
+    #yes-button, #no-button {
+        padding: 12px 30px;
+        font-size: 1.2em;
+    }
+    
+    .final-message {
+        font-size: 1.8em;
+        padding: 30px 40px;
+    }
 }
 
 .buttons-container {
@@ -78,44 +95,40 @@ h1 {
     height: 30px;
     background-color: #d5006d;
     transform: rotate(-45deg);
-    animation: floatUp 5s linear forwards;
-    opacity: 0.7;
+    animation: pulse 3s ease-in-out infinite;
+    opacity: 0.8;
 }
 
-.heart:before,
-.heart:after {
+.heart::before,
+.heart::after {
     content: '';
     position: absolute;
-    width: 30px;
-    height: 30px;
     background-color: #d5006d;
     border-radius: 50%;
 }
 
-.heart:before {
+.heart::before {
+    width: 30px;
+    height: 30px;
     top: -15px;
     left: 0;
 }
 
-.heart:after {
+.heart::after {
+    width: 30px;
+    height: 30px;
     left: 15px;
     top: 0;
 }
 
-@keyframes floatUp {
-    0% {
-        transform: translateY(100vh) rotate(-45deg) scale(0.5);
-        opacity: 0;
-    }
-    10% {
+@keyframes pulse {
+    0%, 100% {
+        transform: rotate(-45deg) scale(1);
         opacity: 0.7;
     }
-    90% {
-        opacity: 0.7;
-    }
-    100% {
-        transform: translateY(-100px) rotate(-45deg) scale(1);
-        opacity: 0;
+    50% {
+        transform: rotate(-45deg) scale(1.1);
+        opacity: 1;
     }
 }
 
