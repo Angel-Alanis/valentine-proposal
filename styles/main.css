@@ -2,54 +2,120 @@ body {
     background-color: #ffcccb;
     font-family: 'Arial', sans-serif;
     overflow: hidden;
+    margin: 0;
+    padding: 0;
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    position: relative;
+    z-index: 10;
 }
 
 h1 {
     text-align: center;
     color: #d5006d;
     font-size: 3em;
-    margin-top: 20%;
+    margin-bottom: 40px;
     animation: fadeIn 2s ease-in-out;
+}
+
+.buttons-container {
+    display: flex;
+    gap: 30px;
+    justify-content: center;
+}
+
+#yes-button, #no-button {
+    padding: 15px 40px;
+    font-size: 1.5em;
+    border: none;
+    border-radius: 50px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-weight: bold;
+}
+
+#yes-button {
+    background-color: #d5006d;
+    color: white;
+}
+
+#yes-button:hover {
+    background-color: #ff1493;
+    transform: scale(1.1);
+}
+
+#no-button {
+    background-color: white;
+    color: #d5006d;
+    border: 3px solid #d5006d;
+    position: relative;
+    transition: all 0.2s ease;
+}
+
+#no-button:hover {
+    background-color: #ffe0e6;
+}
+
+.hearts-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 1;
 }
 
 .heart {
     position: absolute;
-    width: 50px;
-    height: 50px;
+    width: 30px;
+    height: 30px;
     background-color: #d5006d;
     transform: rotate(-45deg);
-    animation: float 3s infinite;
+    animation: floatUp 5s linear forwards;
+    opacity: 0.7;
 }
 
 .heart:before,
 .heart:after {
     content: '';
     position: absolute;
-    width: 50px;
-    height: 50px;
+    width: 30px;
+    height: 30px;
     background-color: #d5006d;
     border-radius: 50%;
 }
 
 .heart:before {
-    top: -25px;
+    top: -15px;
     left: 0;
 }
 
 .heart:after {
-    left: 25px;
+    left: 15px;
     top: 0;
 }
 
-@keyframes float {
+@keyframes floatUp {
     0% {
-        transform: translateY(0);
+        transform: translateY(100vh) rotate(-45deg) scale(0.5);
+        opacity: 0;
     }
-    50% {
-        transform: translateY(-20px);
+    10% {
+        opacity: 0.7;
+    }
+    90% {
+        opacity: 0.7;
     }
     100% {
-        transform: translateY(0);
+        transform: translateY(-100px) rotate(-45deg) scale(1);
+        opacity: 0;
     }
 }
 
@@ -62,21 +128,37 @@ h1 {
     }
 }
 
-#proposal {
-    text-align: center;
-    margin-top: 20px;
-    font-size: 1.5em;
+.final-message {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 2.5em;
     color: #d5006d;
-    animation: slideIn 2s ease-in-out;
+    text-align: center;
+    font-weight: bold;
+    z-index: 100;
+    background-color: rgba(255, 255, 255, 0.95);
+    padding: 40px 60px;
+    border-radius: 30px;
+    box-shadow: 0 10px 50px rgba(213, 0, 109, 0.3);
+    animation: popIn 0.5s ease-out;
 }
 
-@keyframes slideIn {
-    from {
-        transform: translateY(100%);
+.final-message.hidden {
+    display: none;
+}
+
+@keyframes popIn {
+    0% {
+        transform: translate(-50%, -50%) scale(0);
         opacity: 0;
     }
-    to {
-        transform: translateY(0);
+    50% {
+        transform: translate(-50%, -50%) scale(1.1);
+    }
+    100% {
+        transform: translate(-50%, -50%) scale(1);
         opacity: 1;
     }
 }
