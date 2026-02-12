@@ -1,0 +1,22 @@
+{
+  "name": "valentine-proposal",
+  "version": "1.0.0",
+  "description": "A romantic cinematic animation asking if your girlfriend wants to be your Valentine.",
+  "main": "src/index.html",
+  "scripts": {
+    "start": "live-server src",
+    "build": "echo 'Build step can be added here'"
+  },
+  "dependencies": {},
+  "devDependencies": {
+    "live-server": "^1.2.1"
+  },
+  "keywords": [
+    "valentine",
+    "animation",
+    "romantic",
+    "cinematic"
+  ],
+  "author": "Your Name",
+  "license": "MIT"
+}

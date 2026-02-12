@@ -1,0 +1,82 @@
+body {
+    background-color: #ffcccb;
+    font-family: 'Arial', sans-serif;
+    overflow: hidden;
+}
+
+h1 {
+    text-align: center;
+    color: #d5006d;
+    font-size: 3em;
+    margin-top: 20%;
+    animation: fadeIn 2s ease-in-out;
+}
+
+.heart {
+    position: absolute;
+    width: 50px;
+    height: 50px;
+    background-color: #d5006d;
+    transform: rotate(-45deg);
+    animation: float 3s infinite;
+}
+
+.heart:before,
+.heart:after {
+    content: '';
+    position: absolute;
+    width: 50px;
+    height: 50px;
+    background-color: #d5006d;
+    border-radius: 50%;
+}
+
+.heart:before {
+    top: -25px;
+    left: 0;
+}
+
+.heart:after {
+    left: 25px;
+    top: 0;
+}
+
+@keyframes float {
+    0% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-20px);
+    }
+    100% {
+        transform: translateY(0);
+    }
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+#proposal {
+    text-align: center;
+    margin-top: 20px;
+    font-size: 1.5em;
+    color: #d5006d;
+    animation: slideIn 2s ease-in-out;
+}
+
+@keyframes slideIn {
+    from {
+        transform: translateY(100%);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
